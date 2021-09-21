@@ -10,6 +10,7 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebServlet;
 
 @WebServlet(name="mainServlet",  urlPatterns="*.ize")
+//VÁLTOZTATÁS
 public class MainServlet implements Servlet {
 
 	@Override
