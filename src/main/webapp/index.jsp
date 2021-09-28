@@ -9,7 +9,7 @@ szamologepszervlet.ResultDto result = (request.getAttribute("result") != null) ?
 					(szamologepszervlet.ResultDto) request.getAttribute("result") :
 					new szamologepszervlet.ResultDto();
 
-String resultText = (result == null) ?
+String resultText = ((result == null) || result.getResult() == null) ?
 				"" : "result " + result.getResult().toString();
 %>
 
