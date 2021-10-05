@@ -9,6 +9,7 @@ import java.awt.*;
 @Controller
 public class MainController {
 
+	//ez csak egy comment
 	@RequestMapping(path="/")
 	@ResponseBody
 	ResponseDto gyoker() {
