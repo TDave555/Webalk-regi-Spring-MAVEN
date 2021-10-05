@@ -1,22 +1,24 @@
 package hu.me.iit.webalk.first;
 
 public class ResponseDto {
-    private int ID;
+
+    private int id;
     private String message;
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setMessage(String message) {
         this.message = message;
     }
+
 }
