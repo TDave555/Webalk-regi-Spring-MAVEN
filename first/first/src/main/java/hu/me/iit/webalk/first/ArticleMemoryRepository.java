@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ArticleMemoryRepository implements ArticleRepository {
-
-	private int findArticleById(Long id) {
+	private List<ArticleDto> articles = new ArrayList<>();
+	
+	public int findArticleById(Long id) {
 		int found = -1;
 		for (int i = 0; i < articles.size(); i++) {
 			if(articles.get(i).getId() == id) {
@@ -26,7 +27,9 @@ public class ArticleMemoryRepository implements ArticleRepository {
 
 	@Override
 	public ArticleDto getById(Long id) {
-		return articles.get(findArticleById(id));
+		int index = findArticleById(id);
+		
+		return index == -1 ? null : articles.get(findArticleById(id));
 	}
 
 	@Override
@@ -37,6 +40,7 @@ public class ArticleMemoryRepository implements ArticleRepository {
 			ArticleDto foundArticle = articles.get(found);
 			foundArticle.setAuthor(articleDto.getAuthor());
 			foundArticle.setPages(articleDto.getPages());
+			foundArticle.setTitle(articleDto.getTitle());
 		} else {
 			articles.add(articleDto);
 		}
