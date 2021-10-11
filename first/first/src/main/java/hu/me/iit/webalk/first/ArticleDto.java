@@ -21,10 +21,10 @@ public class ArticleDto {
 
 	
     public Long getId() {
-		return id;
+        return id;
 	}
 	public void setId(Long id) {
-		this.id = id;
+        this.id = id;
 	}
     
     public String getAuthor() {

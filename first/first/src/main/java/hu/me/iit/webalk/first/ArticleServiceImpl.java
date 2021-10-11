@@ -1,28 +1,31 @@
 package hu.me.iit.webalk.first;
 
 import java.util.List;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ArticleServiceImpl implements ArticleService {
-	
 	private final int MAXIMUM_ARTICLE_COUNT = 10;
-	private ArticleRepository articleRepository;
+	private final ArticleRepository articleRepository;
+
+	public ArticleServiceImpl(ArticleRepository articleRepository) {
+		this.articleRepository = articleRepository;
+	}
 
 	@Override
 	public List<ArticleDto> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return articleRepository.findAll();
 	}
 
 	@Override
 	public ArticleDto getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return articleRepository.getById(id);
 	}
 
 	@Override
 	public Long save(ArticleDto articleDto) {
 		// TODO Auto-generated method stub
-		if(articleRepository.findAll().size() > MAXIMUM_ARTICLE_COUNT) {
+		if(articleRepository.findAll().size() >= MAXIMUM_ARTICLE_COUNT) {
 			throw new TooMuchArticleException();
 		}
 		return articleRepository.save(articleDto);
@@ -30,8 +33,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-
+		articleRepository.deleteById(id);
 	}
 
 }
